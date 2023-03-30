@@ -20,7 +20,7 @@ class MessageController extends Controller {
     public function get(): Response {
 
         $messages = Message::with('user')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('id', 'desc')
             //->inRandomOrder()
             ->limit(10)
             ->get();

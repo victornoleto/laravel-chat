@@ -34,7 +34,7 @@ async function get() {
 	
 	const data = await response.json();
 
-	data.forEach(add);
+	data.reverse().forEach(add);
 }
 
 async function send(text) {
