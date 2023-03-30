@@ -6,7 +6,10 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/css/app.css',
+                'resources/css/chat.css',
                 'resources/js/app.js',
+                'resources/js/websocket.js',
+                'resources/js/chat.js',
             ],
             refresh: true,
         }),

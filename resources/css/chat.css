@@ -1,0 +1,56 @@
+#app {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+  position: relative;
+}
+
+#chat {
+  position: absolute;
+  width: calc(100% - 6rem);
+  height: calc(100% - 6rem);
+  margin: 3rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+#chat #messages {
+  flex-grow: 1;
+  overflow: auto;
+  background-image: url("../images/chatbg.png");
+  padding: 1rem;
+  background-repeat: repeat-x;
+}
+#chat #messages ul li {
+  background-color: #fff;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+#chat #messages ul li:not(:last-child) {
+  margin-bottom: 1rem;
+}
+#chat #messages ul li label {
+  font-weight: 600;
+}
+#chat #messages ul li small {
+  opacity: 0.4;
+}
+#chat #messages ul li.self {
+  background-color: #dafdd5;
+  margin-left: auto;
+}
+#chat #input {
+  margin-top: auto;
+}
+#chat #input form {
+  display: flex;
+}
+#chat #input form input {
+  margin: 0;
+}/*# sourceMappingURL=chat.css.map */
