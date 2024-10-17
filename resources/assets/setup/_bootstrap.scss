@@ -1,0 +1,21 @@
+$dark: #0c1317;
+$dark-tint: #202c33;
+
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+
+// novas cores
+$custom-colors: (
+	'dark-tint': $dark-tint,
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// sobrescrevendo valores padrões do Bootstrap
+$font-size-base: 0.85rem;
+$font-weight-base: 500;
+
+// Bootstrap and its default variables
+@import "node_modules/bootstrap/scss/bootstrap";

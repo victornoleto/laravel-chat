@@ -65,7 +65,12 @@ return [
         'null' => [
             'driver' => 'null',
         ],
-
     ],
 
+    'reverb' => [
+        'key' => env('REVERB_APP_KEY'),
+        'host' => env('REVERB_HOST'),
+        'port' => env('REVERB_PORT', 80),
+        'secure_port' => env('REVERB_SECURE_PORT', 443),
+    ],
 ];

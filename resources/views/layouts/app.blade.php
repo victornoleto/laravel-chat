@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,38 +8,34 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
-
-        <!-- Scripts -->
-        @vite([
-            'resources/css/app.css',
-            'resources/js/app.js',
-        ])
+        <!-- Styles -->
+		<link rel="stylesheet" href="{{ asset('assets/css/vendor.min.css') }}" />
+		<link rel="stylesheet" href="{{ asset('assets/css/setup.min.css') }}" />
+		<link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
 
     </head>
-    <body class="font-sans antialiased">
+
+    <body class="bg-dark">
         
-        <div id="app" class="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <main>
+            {{ $slot }}
+        </main>
 
-            @include('layouts.navigation')
+        <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
+        <script src="{{ asset('assets/js/scripts.min.js') }}"></script>
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white dark:bg-gray-800 shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-
-        </div>
+        <script>
+            var echoConfig = {
+                broadcaster: 'reverb',
+                key: @json(config('broadcasting.reverb.key')),
+                wsHost: @json(config('broadcasting.reverb.host')),
+                wsPort: {{ config('broadcasting.reverb.port') }},
+                wssPort: {{ config('broadcasting.reverb.secure_port') }},
+                enabledTransports: ['ws', 'wss'],
+                forceTLS: false,
+            };
+            window.Echo = new Echo(echoConfig);
+        </script>
 
     </body>
     

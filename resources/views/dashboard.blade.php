@@ -6,23 +6,29 @@
         </h2>
     </x-slot> --}}
 
-    <!-- Scripts -->
-    @vite([
-        'resources/css/chat.css',
-        'resources/js/websocket.js',
-        'resources/js/chat.js'
-    ])
+    <div id="chat" class="shadow rounded" data-user-id="{{ auth()->id() }}">
 
-    <div id="chat" class="shadow rounded bg-white" data-user-id="{{ Auth::id() }}">
         <div id="messages">
+            <div class="bg"></div>
             <ul></ul>
         </div>
-        <div id="input" class="p-6">
+
+        <div id="input" class="p-3 bg-dark-tint">
+
             <form action="">
-                <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" required autofocus />
-                <x-primary-button class="ml-6">Enviar</x-primary-button>
+
+                <div class="d-flex gap-3 w-100">
+                    <input id="name" type="text" name="name" class="form-control w-100" placeholder="Digite uma mensagem..." required autofocus />
+                    <button type="submit" class="btn btn-dark fw-bold">Enviar</button>
+                </div>
+
+                {{-- <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" required autofocus />
+                <x-primary-button class="ml-6">Enviar</x-primary-button> --}}
+
             </form>
+
         </div>
+        
     </div>
 
 </x-app-layout>
